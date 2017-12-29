@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>layout.html</title>
+
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+		<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+		<link rel="stylesheet" type="text/css"
+			href="jquery-easyui-1.5.3/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css"
+			href="jquery-easyui-1.5.3/themes/icon.css">
+		<script type="text/javascript" src="jquery-easyui-1.5.3/jquery.min.js">
+</script>
+		<script type="text/javascript"
+			src="jquery-easyui-1.5.3/jquery.easyui.min.js">
+</script>
+		<script type="text/javascript">
+			function addTab(myTitle,url){
+				var exist = $("#mytab").tabs("exists", myTitle);
+				if(!exist){
+					$("#mytab").tabs("add",{
+						title:myTitle,
+						closable:true,
+						content:'<iframe frameborder=0 width="100%" height="100%" scrolling="no" src="'+url+'"></iframe>'
+					
+					})
+				}
+				$("mytab").tabs("select",myTitle);
+			}
+		
+		
+</script>
+	</head>
+
+	<body>
+		<div class="easyui-layout"
+			style="width: 100%; height: 100%; maring: 0px">
+			<div data-options="region:'north'" style="height: 20%">
+				<div align="center"display:'inline-block'>
+					<img src="logo.jpg" style="width: 200px" />
+					<a href="#" align="right">退出</a>
+				</div>
+
+			</div>
+			<div data-options="region:'west',split:true" title="导航菜单"
+				style="width: 15%;">
+				
+				<div class="easyui-accordion" style="width: 500px; height: 300px;">
+
+					<div title="菜品管理" data-options="iconCls:'icon-ok'"
+						style="overflow: auto; padding: 10px;">
+						<a href="javascript:addTab('菜品管理','crud.html')"  style="text-decoration: none;color:black" >菜品管理</a><br/>
+						<a href="javascript:addTab('员工管理','tree.html')"  style="text-decoration: none;color:black" >员工管理</a><br/>
+						
+					</div>
+					<div title="餐桌管理" data-options="iconCls:'icon-help'"
+						style="padding: 10px;">
+						<h3 style="color: #0099FF;">
+						
+						</h3>
+					</div>
+				</div>
+
+
+			</div>
+			<div data-options="region:'center',iconCls:'icon-ok'">
+				<div id="mytab" class="easyui-tabs" style="width:100%;height:100%">
+					<div title="欢迎" data-options="closable:true"style="padding:10px">
+						 <p>欢迎各位大佬光临本店</p>
+					</div>
+				</div>
+			</div>
+	</body>
+</html>
