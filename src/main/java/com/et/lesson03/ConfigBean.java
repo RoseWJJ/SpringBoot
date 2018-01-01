@@ -19,7 +19,7 @@ public class ConfigBean {
 		StatViewServlet svs = new StatViewServlet();
 		srb.setServlet(svs);
 		String url = "/druid/*";
-		List<String>urls = new ArrayList<>();
+		List<String>urls =  new ArrayList();
 		urls.add(url);
 		srb.setUrlMappings(urls);
 		LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<String,String>();
